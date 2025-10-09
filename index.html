@@ -21,47 +21,60 @@
       align-items: center;
       justify-content: center;
       min-height: 52px;
-      padding: 0.75rem 1.75rem;
-      border-radius: 0.75rem;
+      padding: 0.75rem 1.9rem;
+      border-radius: 999px;
       font-weight: 800;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: #111827;
-      background: linear-gradient(135deg, #facc15 0%, #fde047 40%, #eab308 70%, #facc15 100%);
-      box-shadow: 0 8px 0 #b45309, 0 14px 28px rgba(8, 47, 73, 0.55);
-      transition: transform 150ms ease, box-shadow 150ms ease;
+      color: #0f172a;
+      background: linear-gradient(115deg, #f8fafc 0%, #cbd5f5 32%, #94a3b8 50%, #e2e8f0 68%, #f8fafc 100%);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      transition: transform 150ms ease, background-position 600ms ease;
       overflow: hidden;
+      background-size: 180% 180%;
+      background-position: 0% 50%;
+      isolation: isolate;
+    }
+    .btn-metal:hover,
+    .btn-metal:focus-visible {
+      background-position: 100% 50%;
     }
     .btn-metal:focus-visible {
-      outline: 3px solid #fef08a;
+      outline: 3px solid rgba(226, 232, 240, 0.8);
       outline-offset: 3px;
-    }
-    .btn-metal:active {
-      transform: translateY(2px);
-      box-shadow: 0 5px 0 #9a3412, 0 10px 20px rgba(8, 47, 73, 0.45);
     }
     .btn-metal::after {
       content: "";
       position: absolute;
-      top: -120%;
-      left: -40%;
-      width: 40%;
-      height: 340%;
-      background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 45%, rgba(255, 255, 255, 0) 100%);
-      transform: rotate(25deg);
-      opacity: 0;
+      inset: -50% 30%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(12deg) translateX(-150%);
+      animation: blade-glint 2.8s linear infinite;
+      pointer-events: none;
     }
-    .btn-metal:hover::after,
-    .btn-metal:focus-visible::after {
-      opacity: 1;
-      animation: sheen 1.6s linear;
+    .btn-metal:active {
+      transform: translateY(1px) scale(0.99);
     }
-    @keyframes sheen {
+    @keyframes blade-glint {
       0% {
-        transform: translateX(-200%) rotate(25deg);
+        transform: rotate(12deg) translateX(-180%);
+        opacity: 0;
+      }
+      35% {
+        opacity: 1;
+      }
+      70% {
+        opacity: 0.7;
       }
       100% {
-        transform: translateX(400%) rotate(25deg);
+        transform: rotate(12deg) translateX(180%);
+        opacity: 0;
       }
     }
     .btn-metal-secondary {
@@ -76,9 +89,9 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #e2e8f0;
-      background: rgba(15, 23, 42, 0.75);
-      border: 2px solid rgba(250, 204, 21, 0.5);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 12px 28px rgba(8, 47, 73, 0.55);
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.7) 100%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 18px rgba(2, 6, 23, 0.35);
       transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
       overflow: hidden;
     }
@@ -87,19 +100,77 @@
       outline-offset: 3px;
     }
     .btn-metal-secondary:hover {
-      border-color: #facc15;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 16px 32px rgba(8, 47, 73, 0.65);
+      border-color: rgba(226, 232, 240, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 10px 24px rgba(2, 6, 23, 0.45);
+    }
+    .btn-metal-secondary:active {
+      transform: translateY(1px) scale(0.99);
+    }
+    .value-bullet {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem 0.9rem 1.1rem;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.6) 100%);
+      box-shadow: inset 0 1px 0 rgba(148, 163, 184, 0.15);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .value-bullet::before {
+      content: "";
+      flex-shrink: 0;
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 999px;
+      background: conic-gradient(from 0deg, #38bdf8, #f8fafc, #38bdf8);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
+      animation: pulse-glow 2.4s ease-in-out infinite;
+    }
+    .value-bullet::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.25), transparent 55%);
+      opacity: 0;
+      animation: shimmer 3.2s ease-in-out infinite;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    @keyframes pulse-glow {
+      0%,
+      100% {
+        transform: scale(0.9);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 1;
+      }
+    }
+    @keyframes shimmer {
+      0%,
+      65% {
+        opacity: 0;
+      }
+      80% {
+        opacity: 0.4;
+      }
+      100% {
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
   <header class="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
-    <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
-      <div class="flex items-center gap-3">
+    <div class="mx-auto flex max-w-3xl items-center justify-between gap-6 px-4 py-4">
+      <div class="flex items-center gap-4">
         <!-- TODO: Replace logo asset if updated -->
         <img src="https://assets.cdn.filesafe.space/lXfW3IllUK9N32xFZgSP/media/67851a9499f61f76d46c8ec1.png" alt="Leads Alchemist logo" loading="lazy" class="h-10 w-auto" />
       </div>
-      <a href="#booking" class="btn-metal text-xs">Book Free Pipeline Audit</a>
+      <a href="#booking" class="btn-metal shrink-0 px-6 text-xs">Book Free Pipeline Audit</a>
     </div>
   </header>
 
@@ -109,15 +180,22 @@
       <p class="text-xs uppercase tracking-[0.3em] text-yellow-300">UK Home Improvement Businesses</p>
       <h1 class="text-4xl font-extrabold leading-tight text-white">Turn Lead Chaos into a Predictable, Profitable Pipeline in 90 Days.</h1>
       <p class="text-lg text-slate-200">The TradeFlow Alchemy System™ attracts serious homeowners, qualifies them automatically, and books them straight into your diary even while you’re on-site.</p>
-      <div class="flex flex-wrap items-center gap-2 text-sm font-semibold text-slate-300" aria-label="Proof points">
-        <span class="rounded-full border border-slate-700 px-3 py-1">24/7 instant follow-up</span>
-        <span class="rounded-full border border-slate-700 px-3 py-1">Qualified calls, not tyre-kickers</span>
-        <span class="rounded-full border border-slate-700 px-3 py-1">Built for UK trades</span>
-      </div>
+      <ul class="grid gap-3 text-sm font-semibold text-slate-100 sm:grid-cols-3" aria-label="Proof points">
+        <li class="value-bullet">24/7 instant follow-up</li>
+        <li class="value-bullet">Qualified calls, not tyre-kickers</li>
+        <li class="value-bullet">Built for UK trades</li>
+      </ul>
       <div class="flex flex-col gap-3 sm:flex-row">
         <a href="#booking" class="btn-metal w-full">Book My Pipeline Audit</a>
         <a href="#system" class="btn-metal-secondary w-full">How the 90-Day Build Works</a>
       </div>
+      <figure class="flex flex-col items-start gap-4 rounded-2xl border border-slate-800 bg-slate-900/70 p-5 text-left shadow-sm sm:flex-row sm:items-center">
+        <img src="https://storage.googleapis.com/msgsndr/lXfW3IllUK9N32xFZgSP/media/6893a3045016cb8ecb3df85c.png" alt="Andy from Protective Wall Coatings" loading="lazy" class="h-16 w-16 rounded-full border border-slate-700 object-cover" />
+        <blockquote class="space-y-2 text-sm text-slate-200">
+          <p class="text-lg font-semibold text-yellow-100">“It's been the best business decision I've ever made… and that's after 20 years.”</p>
+          <figcaption class="text-xs uppercase tracking-[0.2em] text-slate-400">Andy, Protective Wall Coatings</figcaption>
+        </blockquote>
+      </figure>
     </section>
 
     <section id="system" class="mt-16 space-y-8">
