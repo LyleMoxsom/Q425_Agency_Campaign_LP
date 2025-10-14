@@ -497,6 +497,45 @@
           title="Agency Campaign Q425 - LP Form"
         ></iframe>
         <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+        <script>
+          /* Pass page URL parameters (UTMs, fbclid, etc.) into embedded GoHighLevel form iframes */
+          (function () {
+            function appendQueryToGHLFormIframes() {
+              var qs = window.location.search.replace(/^\?/, '');
+              if (!qs) return;
+
+              var iframes = document.querySelectorAll(
+                'iframe[src*="leadconnectorhq.com"], iframe[src*="gohighlevel.com"]'
+              );
+              if (!iframes.length) return;
+
+              iframes.forEach(function (iframe) {
+                try {
+                  var src = new URL(iframe.src);
+                  // Don’t duplicate params if already present
+                  qs.split('&').forEach(function (pair) {
+                    if (!pair) return;
+                    var idx = pair.indexOf('=');
+                    var key = idx > -1 ? pair.slice(0, idx) : pair;
+                    var val = idx > -1 ? pair.slice(idx + 1) : '';
+                    if (!src.searchParams.has(key)) src.searchParams.append(key, decodeURIComponent(val));
+                  });
+                  iframe.src = src.toString();
+                } catch (e) {
+                  /* noop */
+                }
+              });
+            }
+
+            // Run when DOM loads and whenever GHL injects the iframe
+            window.addEventListener('DOMContentLoaded', appendQueryToGHLFormIframes);
+            window.addEventListener('load', appendQueryToGHLFormIframes);
+            new MutationObserver(appendQueryToGHLFormIframes).observe(document.documentElement, {
+              childList: true,
+              subtree: true,
+            });
+          })();
+        </script>
       </div>
     </section>
   </main>
