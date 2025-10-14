@@ -193,191 +193,40 @@
         width: 0.7rem;
       }
     }
-
-    /* ===== MOBILE COMPACT HEADER & HERO (≤414px) ===== */
-    @media (max-width: 414px) {
-      /* Header: hide nav/CTA, compress height, show small logo only */
-      .site-header,
-      header.site-header,
-      #site-header {
-        height: 44px;
-        padding: 6px 12px;
-        background: transparent;
-      }
-
-      /* Logo shrink (use any existing logo selector as well) */
-      .site-header .logo img,
-      .logo img,
-      img.site-logo {
-        max-height: 22px;
-        width: auto;
-      }
-
-      /* Hide nav links + top CTA */
-      .site-header .nav,
-      nav.primary-nav,
-      .site-header .cta-header,
-      .header-cta,
-      .nav-links,
-      .topbar-cta {
-        display: none !important;
-      }
-
-      /* Hero tightening */
-      .hero,
-      .section-hero {
-        padding-top: 16px;
-        padding-bottom: 16px;
-      }
-      .hero h1,
-      .section-hero h1,
-      h1.hero-title {
-        font-size: clamp(26px, 6vw, 32px);
-        line-height: 1.1;
-        margin-bottom: 8px;
-      }
-      .hero .subhead,
-      .section-hero .subhead,
-      p.hero-subhead {
-        font-size: 15px;
-        line-height: 1.35;
-        margin-bottom: 10px;
-      }
-
-      /* Bullets tighter; hide 3rd bullet if needed to fit proof + CTA */
-      .hero .bullets li,
-      .feature-bullets li {
-        padding: 8px 10px;
-        font-size: 14px;
-      }
-      .hero .bullets li:nth-child(3),
-      .feature-bullets li:nth-child(3) {
-        display: none;
-      }
-
-      /* Proof chip: visible only on mobile */
-      #mobile-proof-chip.proof-chip {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 10px;
-        padding: 8px 10px;
-        margin: 8px 0 12px;
-      }
-      .proof-chip .proof-avatar {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-      }
-      .proof-chip .proof-text {
-        display: flex;
-        flex-direction: column;
-      }
-      .proof-chip .proof-quote {
-        font-size: 13px;
-        font-weight: 600;
-      }
-      .proof-chip .proof-stat {
-        font-size: 12px;
-        opacity: 0.85;
-      }
-
-      /* Primary CTA spacing + microcopy */
-      .hero .btn-primary,
-      .cta .btn-primary,
-      a.btn.btn-primary {
-        margin-top: 6px;
-      }
-      .cta-note {
-        font-size: 12px;
-        opacity: 0.85;
-        text-align: center;
-        margin-top: 6px;
-      }
-
-      /* Sticky footer CTA (mobile only) */
-      #sticky-cta.sticky-cta {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 12px;
-        background: rgba(12, 12, 20, 0.85);
-        backdrop-filter: blur(6px);
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        z-index: 1000;
-      }
-      #sticky-cta .btn {
-        width: 100%;
-      }
-      body {
-        padding-bottom: 76px;
-      }
-    }
-
-    /* ===== DESKTOP / PRO MAX SAFETY NET (≥430px) ===== */
-    @media (min-width: 430px) {
-      /* Ensure original header/nav returns exactly as before */
-      .site-header .nav,
-      nav.primary-nav,
-      .site-header .cta-header,
-      .header-cta,
-      .nav-links,
-      .topbar-cta {
-        display: initial;
-      }
-      #mobile-proof-chip {
-        display: none !important;
-      }
-      #sticky-cta {
-        display: none !important;
-      }
-    }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100">
-  <header class="site-header border-b border-slate-800 bg-[#0b1224]">
+  <header class="border-b border-slate-800 bg-[#0b1224]">
     <div class="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
-      <a href="#" class="logo flex items-center gap-3">
-        <img src="https://assets.cdn.filesafe.space/lXfW3IllUK9N32xFZgSP/media/67851a9499f61f76d46c8ec1.png" alt="Leads Alchemist logo" loading="lazy" class="h-10 w-auto site-logo" />
+      <a href="#" class="flex items-center gap-3">
+        <img src="https://assets.cdn.filesafe.space/lXfW3IllUK9N32xFZgSP/media/67851a9499f61f76d46c8ec1.png" alt="Leads Alchemist logo" loading="lazy" class="h-10 w-auto" />
       </a>
-      <nav class="nav primary-nav hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 sm:flex">
+      <nav class="hidden items-center gap-6 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 sm:flex">
         <a href="#system" class="transition hover:text-yellow-300">System</a>
         <a href="#andys-story" class="transition hover:text-yellow-300">Andy’s Story</a>
         <a href="#pains" class="transition hover:text-yellow-300">Who We Help</a>
         <a href="#booking" class="btn-metal">Book Audit</a>
       </nav>
-      <a href="#booking" class="cta-header header-cta btn-metal sm:hidden">Book Audit</a>
+      <a href="#booking" class="btn-metal sm:hidden">Book Audit</a>
     </div>
   </header>
 
   <main class="mx-auto max-w-3xl px-4 pb-24 pt-8 md:pb-28">
     <!-- TODO: Edit hero copy as needed -->
-    <section class="hero space-y-5 md:space-y-6">
+    <section class="space-y-5 md:space-y-6">
       <p class="text-[0.7rem] uppercase tracking-[0.22em] text-yellow-300 sm:text-xs sm:tracking-[0.3em]">UK Home Improvement Businesses</p>
       <h1 class="text-[2.1rem] font-extrabold leading-tight text-white sm:text-4xl">Turn Lead Chaos into a Predictable, Profitable Pipeline in 90 Days.</h1>
       <div class="flex flex-col gap-5 md:flex-row md:items-start md:gap-10">
         <div class="order-1 space-y-5 md:order-1 md:flex-1">
-          <p class="hero-subhead text-base text-slate-200 sm:text-lg">The TradeFlow Alchemy System™ attracts serious homeowners, qualifies them automatically, and books them straight into your diary even while you’re on-site.</p>
-          <ul class="bullets grid gap-2.5 text-[0.83rem] font-semibold text-slate-100 sm:grid-cols-3 sm:gap-3 sm:text-sm" aria-label="Proof points">
+          <p class="text-base text-slate-200 sm:text-lg">The TradeFlow Alchemy System™ attracts serious homeowners, qualifies them automatically, and books them straight into your diary even while you’re on-site.</p>
+          <ul class="grid gap-2.5 text-[0.83rem] font-semibold text-slate-100 sm:grid-cols-3 sm:gap-3 sm:text-sm" aria-label="Proof points">
             <li class="value-bullet">24/7 instant follow-up</li>
             <li class="value-bullet">Qualified calls, not tyre-kickers</li>
             <li class="value-bullet">Built for UK trades</li>
           </ul>
           <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <!-- MOBILE-PROOF-CHIP (shows on ≤414px by CSS below) -->
-            <div class="proof-chip hidden" id="mobile-proof-chip" aria-hidden="true">
-              <img src="https://storage.googleapis.com/msgsndr/lXfW3IllUK9N32xFZgSP/media/6893a3045016cb8ecb3df85c.png" alt="Andy" class="proof-avatar" />
-              <div class="proof-text">
-                <span class="proof-quote">“Best business decision in 20 years.”</span>
-                <span class="proof-stat">£160k closed in 3 months</span>
-              </div>
-            </div>
-            <a href="#booking" class="btn btn-primary btn-metal w-full sm:w-auto">Book a quick call (Free Pipeline Audit)</a>
+            <a href="#booking" class="btn-metal w-full sm:w-auto">Book My Pipeline Audit</a>
           </div>
-          <div class="cta-note">20-minute call with Lyle • Not a pushy sales call</div>
         </div>
         <a href="#andys-video" class="hero-figure group order-2 flex items-start gap-3 rounded-2xl border border-slate-800 bg-slate-900/70 p-4 text-left shadow-sm transition hover:border-yellow-400/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-300 md:order-2 md:max-w-xs md:flex-col md:gap-4 md:p-5 no-underline">
           <img src="https://storage.googleapis.com/msgsndr/lXfW3IllUK9N32xFZgSP/media/6893a3045016cb8ecb3df85c.png" alt="Andy from Protective Wall Coatings" loading="lazy" class="hero-avatar h-12 w-12 rounded-full border border-slate-700 object-cover sm:h-14 sm:w-14" />
@@ -469,7 +318,7 @@
         </article>
       </div>
       <div>
-        <a href="#booking" class="btn btn-primary btn-metal w-full sm:w-auto">Book a quick call (Free Pipeline Audit)</a>
+        <a href="#booking" class="btn-metal w-full sm:w-auto">Book My Pipeline Audit</a>
       </div>
     </section>
 
@@ -549,7 +398,7 @@
     <section class="mt-16 space-y-4 rounded-2xl border border-yellow-400/50 bg-slate-900/70 p-6 shadow-xl">
       <h2 class="text-2xl font-bold text-white">Take Control of Your Pipeline</h2>
       <p class="text-slate-200">So if you’re tired of chasing tyre-kickers and are looking to stack your diary with profitable, ready-to-buy homeowners, the TradeFlow Alchemy System™ is built for you. Let’s map out how the next 90 days can look.</p>
-      <a href="#booking" class="btn btn-primary btn-metal w-full sm:w-auto">Book a quick call (Free Pipeline Audit)</a>
+      <a href="#booking" class="btn-metal w-full sm:w-auto">Book My Free Pipeline Audit</a>
     </section>
 
     <section id="faq" class="mt-16 space-y-6">
@@ -702,9 +551,30 @@
     </div>
   </footer>
 
+  <div id="sticky-cta" class="fixed inset-x-0 bottom-0 z-40 hidden border-t border-yellow-400 bg-slate-950/95 p-4 shadow-lg">
+    <div class="mx-auto flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-base font-semibold text-yellow-200">Ready to run a predictable pipeline?</p>
+      <a href="#booking" class="btn-metal w-full sm:w-auto">Book Free Pipeline Audit</a>
+    </div>
+  </div>
+
   <script>
     const yearEl = document.getElementById('year');
     yearEl.textContent = new Date().getFullYear();
+
+    const stickyCta = document.getElementById('sticky-cta');
+    const showStickyAfter = 600;
+    const toggleStickyCta = () => {
+      if (window.scrollY > showStickyAfter) {
+        stickyCta.classList.remove('hidden');
+        document.body.style.paddingBottom = '110px';
+      } else {
+        stickyCta.classList.add('hidden');
+        document.body.style.paddingBottom = '';
+      }
+    };
+    window.addEventListener('scroll', toggleStickyCta, { passive: true });
+    toggleStickyCta();
 
     const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
     const searchParams = new URLSearchParams(window.location.search);
@@ -777,12 +647,5 @@
       });
     }
   </script>
-
-  <!-- STICKY-CTA (mobile only by CSS) -->
-  <div class="sticky-cta" id="sticky-cta">
-    <a class="btn btn-primary btn-metal" href="#booking" id="sticky-cta-btn">
-      Book a quick call (Free Pipeline Audit)
-    </a>
-  </div>
 </body>
 </html>
